@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block title %}главная{% endblock %}
+
+{% block content %}
+<div id="search">
+        <div class="container">
+            <form class="has-success has-feedback has-feedback-left">
+                <input class="form-control" type="text" id="inputSearch" placeholder="поиск рецептов">
+                <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                <button class="btn" type="submit">искать</button>
+            </form>
+        </div>
+</div>
+<h1 align="center">РЕЦЕПТЫ</h1>
+{% for item in recipes %}
+<div class="col-md6 border rounded">
+    <h2>{{item.title}}</h2>
+    <div>
+        {{item.ingridients}}
+    </div>
+    <div>
+        Автор - {{item.user.name}}, Дата написания - {{item.created_date}}
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
